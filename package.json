@@ -1,0 +1,22 @@
+{
+  "name": "retrogames-library",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/AndreuMad/retrogames-library.git",
+  "author": "andrii.labyk@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "api": "babel-node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.3",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1"
+  },
+}
