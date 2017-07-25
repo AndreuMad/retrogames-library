@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+// "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
 
 // We gotta import our models and routes
 import Game from './app/models/game';
