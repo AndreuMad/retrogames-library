@@ -19,7 +19,7 @@ const options = {
 }; // just a bunch of options for the db connection
 
 // Don't forget to substitute it with your connection string
-mongoose.connect('YOUR_MONGO_CONNECTION', options);
+mongoose.connect(/*'YOUR_MONGO_CONNECTION'*/ 'mongodb://localhost/retrogames', options);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
