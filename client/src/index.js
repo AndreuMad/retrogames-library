@@ -5,7 +5,7 @@ import Routes from './routes';
 
 filepicker.setKey("	AaLUjsZI2Q9msx2peoT0uz");
 
-ReactDOm.render(
+ReactDOM.render(
     Routes,
     document.getElementById('content')
 );
