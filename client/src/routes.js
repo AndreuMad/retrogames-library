@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
-//import { AddGameContainer, GamesContainer } from './containers';
+import { AddGameContainer, GamesContainer } from './containers';
 import { Home, Archive, Welcome, About, Contact } from './components';
 
 // Use  hashHistory for easier development
