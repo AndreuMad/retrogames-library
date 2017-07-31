@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, GameListManager } from '../components';
+import { Modal, GamesListManager } from '../components';
 
 export default class GamesContainer extends Component {
     constructor(props) {
@@ -16,6 +16,7 @@ export default class GamesContainer extends Component {
         this.toggleModal = this.toggleModal.bind(this);
         this.deleteGame = this.deleteGame.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.setSearchBar = this.setSearchBar.bind(this);
     }
 
     componentDidMount() {

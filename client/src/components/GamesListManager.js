@@ -1,15 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Game from './Game';
 
 const GamesListManager = (props) => {
-    const {games, searchString, setSearchBar, toggleModal, deleteGame} = props;
+    const { games, searchString, setSearchBar, toggleModal, deleteGame } = props;
 
     return (
-        <div className="container scrollable">
+        <div className="container">
             <div className="row text-left">
-                <Link to="/games/add" className="btn btn-danger">Add a new Game!</Link>
-            </div>
-            <div className="row">
                 <Link to="/games/add" className="btn btn-danger">Add a new Game!</Link>
             </div>
             <div className="row">
@@ -29,7 +27,7 @@ const GamesListManager = (props) => {
                             return (
                                 <Game {...game}
                                       key={game._id}
-                                      i={index}
+                                      index={index}
                                       toggleModal={toggleModal}
                                       deleteGame={deleteGame}
                                 />
