@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
+
+// We import connect from react-redux
+import { connect } from 'react-redux';
+// bindActionCreators comes handy to wrap action creators in dispatch calls
+import { bindActionCreators } from 'redux';
+import Immutable from 'immutable';
+
 import { Modal, GamesListManager } from '../components';
 
-export default class GamesContainer extends Component {
+import * as gamesActionCreators from '../constants/games';
+
+class GamesContainer extends Component {
     constructor(props) {
         super(props);
 
         // The initial state
         this.state = {
-            games: [],
             selectedGame: {},
             searchString: ''
         };
 
         // Bind the methods to this (context)
-        this.toggleModal = this.toggleModal.bind(this);
         this.deleteGame = this.deleteGame.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.setSearchBar = this.setSearchBar.bind(this);
