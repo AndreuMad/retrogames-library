@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Modal = ({game}) => {
+const Modal = ({ game }) => {
     const { _id, img, name, description, year, picture } = game;
     return (
         <div className="modal fade" id="game-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">

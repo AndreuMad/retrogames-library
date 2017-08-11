@@ -8,7 +8,8 @@ import Immutable from 'immutable';
 
 import { Modal, GamesListManager } from '../components';
 
-import * as gamesActionCreators from '../constants/games';
+// we import the action-creators to be binde with bindActionCreators
+import * as gamesActionCreators from '../actions/games';
 
 class GamesContainer extends Component {
     constructor(props) {
@@ -31,46 +32,26 @@ class GamesContainer extends Component {
     }
 
     toggleModal(index) {
-        this.setState({
-            selectedGame: this.state.games[index]
-        });
+        this.props.showSelectedGame(this.props.games[index]);
 
         $('#game-modal').modal();
     }
 
     getGames() {
-        fetch('http://localhost:8080/games', {
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            })
-        })
-        .then(response => response.json()) // The json response to object literal
-        .then(data => this.setState({ games: data }));
+        // this.props.gamesActions.getGames();
+        this.props.getGames();
     }
 
     deleteGame(id) {
-        fetch(`http://localhost:8080/games/${id}`, {
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            }),
-            method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(response => {
-            // The game is also removed from the state thanks to the filter function
-            this.setState({
-                games: this.state.games.filter(game => game._id !== id)
-            });
-            console.log(response.message);
-        })
+        this.props.deleteGame(id);
     }
 
     setSearchBar(event) {
-        this.setState({ searchString: event.target.value.toLowerCase() });
+        this.props.setSearchString(event.target.value.toLowerCase());
     }
 
     render() {
-        const { games, selectedGame, searchString } = this.state;
+        const { games, selectedGame, searchString } = this.props;
         return (
             <div>
                 <Modal game={selectedGame} />
@@ -85,3 +66,24 @@ class GamesContainer extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        // We get all the games to list in the page
+        games: state.getIn(['games', 'list'], Immutable.List()).toJS(),
+        selectedGame: state.getIn(['games', 'selectedGame'], Immutable.List()).toJS(),
+        searchString: state.getIn(['games', 'searchString'], '')
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        // gamesActions: bindActionCreators(gamesActionCreators, dispatch)
+        getGames: () => dispatch(gamesActionCreators.getGames()),
+        deleteGame: (id) => dispatch(gamesActionCreators.deleteGame(id)),
+        showSelectedGame: (game) => dispatch(gamesActionCreators.showSelectedGame(game)),
+        setSearchString: (keyword) => dispatch(gamesActionCreators.setSearchString(keyword))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamesContainer);
