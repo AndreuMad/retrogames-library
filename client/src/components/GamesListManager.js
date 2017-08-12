@@ -19,8 +19,7 @@ const GamesListManager = (props) => {
                 />
             </div>
             <div className="row">
-                {
-                    // A Game is only shown if its name contains the string from the searchString
+                {// A Game is only shown if its name contains the string from the searchString
                     games
                         .filter(game => game.name.toLowerCase().includes(searchString))
                         .map((game, index) => {
