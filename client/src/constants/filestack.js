@@ -1,4 +1,10 @@
+// A very simple file but we want to keep the constants for filestack separated to another file
+const UPLOAD_PICTURE = 'UPLOAD_PICTURE';
+const UPLOAD_PICTURE_SUCCESS = 'UPLOAD_PICTURE_SUCCESS';
+const UPLOAD_PICTURE_FAILURE = 'UPLOAD_PICTURE_FAILURE';
 
-/**
- * Created by Admin on 10.08.2017.
- */
+export {
+    UPLOAD_PICTURE,
+    UPLOAD_PICTURE_SUCCESS,
+    UPLOAD_PICTURE_FAILURE
+};
