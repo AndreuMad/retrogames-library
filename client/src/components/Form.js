@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form/immutable';
 
 const Form = (props) => {
-    const { picture, uploadPicture } = props;
+    const { handleSubmit, picture, uploadPicture } = props;
 
     return (
         <div className="row scrollable">
@@ -19,7 +19,7 @@ const Form = (props) => {
                         </h2>
                     </div>
                     <div className="panel-body">
-                        <form onSubmit={this.props.handleSubmit}>
+                        <form onSubmit={handleSubmit}>
                             <div className="form-group text-left">
                                 <label htmlFor="name">Name</label>
                                 {/* All the previous form input become Field components.

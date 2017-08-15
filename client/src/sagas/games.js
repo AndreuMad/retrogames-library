@@ -1,7 +1,7 @@
 // Import a saga helper
 import { takeLatest, delay } from 'redux-saga';
 
-// Saga effects are usesul to interact with the saga middleware
+// Saga effects are useful to interact with the saga middleware
 import { put, select, call } from 'redux-saga/effects';
 
 // As predicted a saga will take care of GET_GAMES actions
